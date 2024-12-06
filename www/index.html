@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Current Location and Camera</title>
+    
+    <!-- Add Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1qDKbkPqwCbKqRvSKBy9DGNbGImjPv8k&callback=initMap&v=weekly" defer></script> <!-- Map script -->    
+    <style>
+        /* Set the size of the map */
+        #map {
+            height: 300px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #imageGallery {
+            display: none;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            margin-top: 20px;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #photoContainer img {
+            width: 200px; 
+            height: auto;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <h1>Your Current Location</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+            <button id="getCurrentPosition">Get Current Position</button>
+            <button id="cameraTakePicture">Take Picture</button>
+            <img id="myImage" alt="Captured Image" style="display: none;">
+            <div id="map"></div> <!-- Map -->
+            <div id="buttonsContainer"></div> <!-- Container for buttons -->
+        </div>
+        
+        <!-- Image Gallery Section -->
+        <div id="imageGallery">
+            <h3>Photos at this Location</h3>
+            <div id="photoContainer"></div> <!-- Container for images -->
+            <button id="closeGallery">Close Gallery</button>
+        </div>
+    </div>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
